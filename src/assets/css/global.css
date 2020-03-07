@@ -1,0 +1,26 @@
+/* Login页面 */
+.el-form-item.el-form-item-four .el-form-item__content{
+  display: flex;
+  justify-content: space-around;
+}
+
+.el-form-item.el-form-item-four .el-form-item__content .el-button {
+  width: 93px;
+}
+
+.el-submenu__title {
+  padding-left: 40px!important;
+}
+
+.el-breadcrumb {
+  margin-bottom: 20px;
+}
+
+.el-table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.el-pagination {
+  text-align: center;
+}
