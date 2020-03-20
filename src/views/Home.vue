@@ -8,6 +8,9 @@
       <div class="logout">
         <el-button size="mini" @click="logout">退出登录</el-button>
       </div>
+      <div class="editpwd" @click="editpwd">
+        <i class="el-icon-edit-outline"></i>修改密码
+      </div>
       <div class="user-info">
         <i class="el-icon-user-solid"></i>
         <span>欢迎您 , {{userInfo.username}}</span>
@@ -18,7 +21,7 @@
       <el-aside width="260px">
         <div class="time-viewer">
           <div>
-            <i class="el-icon-alarm-clock"></i> 现在是
+            <i class="el-icon-alarm-clock"></i>现在是
           </div>
           <div>{{dateNow | dateformat('yyyy-mm-dd HH:MM:ss')}}</div>
         </div>
@@ -67,14 +70,12 @@
             <el-menu-item index="/overdue">药品过期预警</el-menu-item>
             <el-menu-item index="/overfloor">库存下限预警</el-menu-item>
           </el-submenu>
-          <el-menu-item index="/editpwd" class="single-menu-item">
-            <i class="el-icon-edit-outline"></i>
-            <span>修改密码</span>
-          </el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>
-        <router-view></router-view>
+        <keep-alive :include='["medicineadd"]'>
+          <router-view></router-view>
+        </keep-alive>
       </el-main>
     </el-container>
     <el-footer height="40px">
@@ -104,6 +105,9 @@ export default {
       this.setUserInfo({})
       window.sessionStorage.clear()
       this.$router.push('/login')
+    },
+    editpwd () {
+      this.$router.push('/editpwd')
     }
   },
   created () {
@@ -140,6 +144,7 @@ export default {
   .user-info {
     float: right;
     height: 100%;
+    margin-right: 20px;
     line-height: 68px;
     color: #fff;
     > span {
@@ -151,6 +156,14 @@ export default {
         color: rgb(184, 184, 184);
       }
     }
+  }
+  .editpwd {
+    float: right;
+    height: 100%;
+    line-height: 72px;
+    font-size: 13px;
+    color: rgb(230, 230, 230);
+    cursor: pointer;
   }
   .logout {
     float: right;

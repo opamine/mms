@@ -20,6 +20,8 @@ import NProgress from 'nprogress'
 
 axios.defaults.baseURL = 'http://www.zzhou998.top:3001/'
 
+NProgress.configure({ showSpinner: false })
+
 axios.interceptors.request.use(config => {
   NProgress.start()
   config.headers.Authorization = window.sessionStorage.getItem('token')

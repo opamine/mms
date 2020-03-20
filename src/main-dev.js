@@ -11,7 +11,9 @@ import dateformat from './assets/js/dateformat'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-axios.defaults.baseURL = 'http://www.zzhou998.top:3001/'
+axios.defaults.baseURL = 'http://127.0.0.1:3000/'
+
+NProgress.configure({ showSpinner: false })
 
 axios.interceptors.request.use(config => {
   NProgress.start()

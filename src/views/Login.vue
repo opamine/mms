@@ -37,6 +37,7 @@
       </p>
       <p>毕业设计：基于JavaScript医院药物管理系统</p>
       <p>所在院校：安徽中医药大学 医药信息工程学院</p>
+      <p>©皖ICP备20001257号</p>
     </div>
   </div>
 </template>
@@ -188,7 +189,7 @@ export default {
       }
       .el-form {
         width: 80%;
-        margin: 30px auto 30px;
+        margin: 30px auto 30px 10px;
         .captchaInput {
           width: 50%;
         }
@@ -217,6 +218,9 @@ export default {
     p {
       margin-top: 5px;
       margin-bottom: 5px;
+      &:last-of-type {
+        font-size: 14px;
+      }
     }
     span {
       margin-left: 30px;

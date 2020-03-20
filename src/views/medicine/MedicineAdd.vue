@@ -174,6 +174,7 @@
 </template>
 <script>
 export default {
+  name: 'medicineadd',
   data () {
     return {
       cateList: [],

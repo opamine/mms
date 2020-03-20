@@ -10,7 +10,7 @@ export default {
     identifyCode: String,
     fontSizeMin: {
       type: Number,
-      default: 17
+      default: 19
     },
     fontSizeMax: {
       type: Number,
@@ -18,7 +18,7 @@ export default {
     },
     backgroundColorMin: {
       type: Number,
-      default: 180
+      default: 200
     },
     backgroundColorMax: {
       type: Number,
@@ -92,7 +92,7 @@ export default {
         this.randomNum(this.fontSizeMin, this.fontSizeMax) + 'px SimHei'
       let x = (i + 1) * (this.contentWidth / (this.identifyCode.length + 1))
       let y = this.randomNum(this.fontSizeMax, this.contentHeight - 5)
-      var deg = this.randomNum(-45, 45)
+      var deg = this.randomNum(-40, 40)
       // 修改坐标原点和旋转角度
       ctx.translate(x, y)
       ctx.rotate((deg * Math.PI) / 180)
@@ -103,7 +103,7 @@ export default {
     },
     drawLine (ctx) {
       // 绘制干扰线
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 1; i++) {
         ctx.strokeStyle = this.randomColor(
           this.lineColorMin,
           this.lineColorMax
@@ -122,7 +122,7 @@ export default {
     },
     drawDot (ctx) {
       // 绘制干扰点
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 20; i++) {
         ctx.fillStyle = this.randomColor(0, 255)
         ctx.beginPath()
         ctx.arc(

@@ -67,10 +67,10 @@
         <el-form-item label="厂家名称" prop="manufacturer">
           <el-input v-model="addForm.manufacturer"></el-input>
         </el-form-item>
-        <el-form-item label="所在地区">
+        <el-form-item label="所在地区" prop="place">
           <el-input v-model="addForm.place"></el-input>
         </el-form-item>
-        <el-form-item label="主营产品">
+        <el-form-item label="主营产品" prop="main_sale">
           <el-input v-model="addForm.main_sale"></el-input>
         </el-form-item>
       </el-form>
@@ -92,10 +92,10 @@
         <el-form-item label="厂家名称" prop="manufacturer">
           <el-input v-model="editForm.manufacturer"></el-input>
         </el-form-item>
-        <el-form-item label="所在地区">
+        <el-form-item label="所在地区" prop="place">
           <el-input v-model="editForm.place"></el-input>
         </el-form-item>
-        <el-form-item label="主营产品">
+        <el-form-item label="主营产品" prop="main_sale">
           <el-input v-model="editForm.main_sale"></el-input>
         </el-form-item>
       </el-form>

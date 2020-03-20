@@ -1,37 +1,37 @@
 <template>
   <div>
     <el-breadcrumb>
-      <el-breadcrumb-item><i class="el-icon-s-promotion"></i> <i class="el-icon-s-promotion"></i> <i class="el-icon-s-promotion"></i></el-breadcrumb-item>
+      <el-breadcrumb-item>首页</el-breadcrumb-item>
     </el-breadcrumb>
     <el-card>
       <el-row :gutter="20">
         <el-col :span="6">
-          <div class="show-count">
+          <router-link to="/users" class="show-count">
             <i class="el-icon-user-solid"></i>
             <p>管理人员</p>
             <p>{{userCount}}</p>
-          </div>
+          </router-link>
         </el-col>
         <el-col :span="6">
-          <div class="show-count">
+          <router-link to="/source" class="show-count">
             <i class="el-icon-s-cooperation"></i>
             <p>药品来源商</p>
             <p>{{sourceCount}}</p>
-          </div>
+          </router-link>
         </el-col>
         <el-col :span="6">
-          <div class="show-count">
+          <router-link to="/overfloor" class="show-count">
             <i class="el-icon-message-solid"></i>
             <p>库存下限预警</p>
             <p>{{overfloorCount}}</p>
-          </div>
+          </router-link>
         </el-col>
         <el-col :span="6">
-          <div class="show-count">
+          <router-link to="/overdue" class="show-count">
             <i class="el-icon-warning"></i>
             <p>药品过期报警</p>
             <p>{{overdueCount}}</p>
-          </div>
+          </router-link>
         </el-col>
       </el-row>
     </el-card>
@@ -203,7 +203,7 @@ export default {
       for (let i = 0; i < len; i++) {
         const activeInfo = {
           content:
-            importList[i].import_user_name +
+            importList[i].import_user.username +
             ' --' +
             importList[i].med_id +
             ' × ' +
@@ -235,7 +235,7 @@ export default {
       for (let i = 0; i < len; i++) {
         const activeInfo = {
           content:
-            exportList[i].export_user_name +
+            exportList[i].export_user.username +
             ' --' +
             exportList[i].med_id +
             ' × ' +
@@ -267,6 +267,7 @@ export default {
 <style lang="less" scoped>
 .el-col {
   .show-count {
+    display: block;
     width: 80%;
     max-width: 220px;
     height: 110px;
@@ -274,6 +275,7 @@ export default {
     border-radius: 5px;
     margin: 0 auto;
     text-align: center;
+    text-decoration: none;
     color: #fff;
     font-size: 24px;
     // background:linear-gradient(90deg,#4c77a3c5,#409eff,#40a0ffcb);
