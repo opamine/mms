@@ -21,7 +21,7 @@
       <el-aside width="260px">
         <div class="time-viewer">
           <div>
-            <i class="el-icon-alarm-clock"></i>现在是
+            <i class="el-icon-alarm-clock"></i>&nbsp;现在是
           </div>
           <div>{{dateNow | dateformat('yyyy-mm-dd HH:MM:ss')}}</div>
         </div>

@@ -10,11 +10,11 @@ export default {
     identifyCode: String,
     fontSizeMin: {
       type: Number,
-      default: 19
+      default: 10
     },
     fontSizeMax: {
       type: Number,
-      default: 20
+      default: 24
     },
     backgroundColorMin: {
       type: Number,

@@ -400,7 +400,7 @@ export default {
           message: res.message,
           center: true
         })
-        this.MedicineList()
+        this.getMedicineList()
       }
     }
   },
