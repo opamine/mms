@@ -200,7 +200,21 @@ export default {
       if (regMobile.test(val)) {
         return callback()
       }
-      callback(new Error('手机号格式不合法！'))
+      callback(new Error('手机号格式不符！'))
+    }
+    const checkName = (rule, val, callback) => {
+      const regName = /^[\u4e00-\u9fa5]{2,20}$/
+      if (regName.test(val)) {
+        return callback()
+      }
+      callback(new Error('姓名格式不符(2-20个汉字)！'))
+    }
+    const checkJob = (rule, val, callback) => {
+      const regJob = /^[\u4e00-\u9fa5a-zA-Z0-9]{2,20}$/
+      if (regJob.test(val)) {
+        return callback()
+      }
+      callback(new Error('职位格式不符！'))
     }
     return {
       userList: [],
@@ -215,11 +229,11 @@ export default {
       addFormRules: {
         username: [
           { required: true, message: '请输入管理员姓名', trigger: 'blur' },
-          { min: 2, max: 10, message: '长度在 2 到 10 个字符', trigger: 'blur' }
+          { validator: checkName, trigger: 'change' }
         ],
         job: [
           { required: true, message: '请输入管理员职务', trigger: 'blur' },
-          { min: 2, max: 10, message: '长度在 2 到 10 个字符', trigger: 'blur' }
+          { validator: checkJob, trigger: 'change' }
         ],
         gender: [{ required: true, message: '管理员性别为必选项' }],
         phone_number: [
@@ -240,13 +254,13 @@ export default {
       editFormRules: {
         username: [
           { required: true, message: '请输入管理员姓名', trigger: 'blur' },
-          { min: 2, max: 10, message: '长度在 2 到 10 个字符', trigger: 'blur' }
+          { validator: checkName, trigger: 'change' }
         ],
-        gender: [{ required: true, message: '管理员性别为必选项' }],
         job: [
           { required: true, message: '请输入管理员职务', trigger: 'blur' },
-          { min: 2, max: 10, message: '长度在 2 到 10 个字符', trigger: 'blur' }
+          { validator: checkJob, trigger: 'change' }
         ],
+        gender: [{ required: true, message: '管理员性别为必选项' }],
         phone_number: [
           { required: true, message: '请输入管理员联系方式', trigger: 'blur' },
           { validator: checkMobile, trigger: 'blur' }
