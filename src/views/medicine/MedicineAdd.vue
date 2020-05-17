@@ -267,12 +267,6 @@ export default {
   },
   created () {
     this.getCateList()
-  },
-  activated () {
-    console.log('组件激活')
-  },
-  deactivated () {
-    console.log('组件失活')
   }
 }
 </script>
