@@ -13,12 +13,14 @@
         <el-col :span="12">
           <el-row>
             <el-col :span="12">
-              <div class="warning-total">报警条目总数
+              <div class="warning-total">
+                报警条目总数
                 <p>{{warningTotal}}</p>
               </div>
             </el-col>
             <el-col :span="12">
-              <div class="store-total">库存条目总数
+              <div class="store-total">
+                库存条目总数
                 <p>{{storeTotal}}</p>
               </div>
             </el-col>
@@ -28,7 +30,7 @@
           </el-row>
         </el-col>
       </el-row>
-      <el-table :data="warningList" border="" stripe>
+      <el-table :data="warningList" border stripe>
         <el-table-column type="index" label="#" align="center"></el-table-column>
         <el-table-column prop="med_info.med_name" label="药品名称" align="center"></el-table-column>
         <el-table-column label="药批文号" align="center">
@@ -171,8 +173,7 @@ export default {
         let disTime = item.med_using_date - dateNow
         if (disTime > 0) {
           if ((disTime / 86400000 + '').split('.')[0] > 0) {
-            item.dis_over_due =
-              (disTime / 86400000 + '').split('.')[0] + ' 天'
+            item.dis_over_due = (disTime / 86400000 + '').split('.')[0] + ' 天'
           } else {
             item.dis_over_due =
               ((disTime % 86400000) / 3600000 + '').split('.')[0] + '小时'
@@ -182,6 +183,11 @@ export default {
         }
       })
       this.warningList = warningList
+      this.renderPie()
+    },
+    renderPie () {
+      const myChart = echarts.init(document.getElementById('left'))
+      myChart.setOption(this.chartOption, true)
     },
     async handleCurrentChange (newPage) {
       this.queryInfo.pagenum = newPage
@@ -204,8 +210,8 @@ export default {
     this.getWarningList()
   },
   mounted () {
-    const myChart = echarts.init(document.getElementById('left'))
-    myChart.setOption(this.chartOption, true)
+    // const myChart = echarts.init(document.getElementById('left'))
+    // myChart.setOption(this.chartOption, true)
   }
 }
 </script>

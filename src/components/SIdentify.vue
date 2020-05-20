@@ -10,7 +10,7 @@ export default {
     identifyCode: String,
     fontSizeMin: {
       type: Number,
-      default: 10
+      default: 20
     },
     fontSizeMax: {
       type: Number,
