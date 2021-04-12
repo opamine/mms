@@ -1,1 +1,1 @@
-案例
+:student: :book:
